@@ -1,11 +1,19 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f0f0f0;
+    /* Parallax Background Styles */
+    background-image: url('images/bg.png');
+    background-attachment: fixed; /* This is the key to the parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
     padding: 20px;
+    background-color: rgba(240, 240, 240, 0.8); /* Added a semi-transparent background to see the parallax effect */
+    margin: 40px; /* Added margin to better see the effect at the edges */
+    border-radius: 10px;
 }
 
 #image-grid {
@@ -20,6 +28,7 @@ body {
     cursor: pointer;
     border-radius: 8px;
     transition: transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 #image-grid img:hover {
