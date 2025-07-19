@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButton = document.querySelector(".close-button");
     const prevButton = document.querySelector(".prev");
     const nextButton = document.querySelector(".next");
+    const loadingIndicator = document.querySelector(".loading-indicator");
 
     let images = [];
     let currentIndex = 0;
@@ -15,11 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(text => {
             const imageCount = parseInt(text.trim(), 10);
             if (!isNaN(imageCount)) {
-                // Create an array of image filenames
                 for (let i = 1; i <= imageCount; i++) {
                     images.push(`${String(i).padStart(4, '0')}.png`);
                 }
-                // Randomize the images array
                 images.sort(() => Math.random() - 0.5);
                 createImageGrid();
             }
@@ -37,28 +36,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function openLightbox(index) {
         currentIndex = index;
-        updateLightboxImage();
         lightbox.style.display = "flex";
+        updateLightboxImage();
     }
 
     function updateLightboxImage() {
+        // Show loading indicator and hide the image
+        loadingIndicator.style.display = "block";
+        lightboxImage.style.display = "none";
+        
+        // Hide navigation arrows while loading
+        prevButton.style.display = "none";
+        nextButton.style.display = "none";
+
         const imageName = images[currentIndex];
-        lightboxImage.src = `images/full/${imageName}`;
+        const highResImagePath = `images/full/${imageName}`;
+
+        // Create a new image object to load the image in the background
+        const img = new Image();
+        img.src = highResImagePath;
+
+        img.onload = () => {
+            // Once loaded, update the lightbox image source
+            lightboxImage.src = highResImagePath;
+            
+            // Hide loading indicator and show the image
+            loadingIndicator.style.display = "none";
+            lightboxImage.style.display = "block";
+            
+            // Show navigation arrows again
+            prevButton.style.display = "block";
+            nextButton.style.display = "block";
+        };
     }
 
     const closeLightbox = () => lightbox.style.display = "none";
+    
     const showNextImage = () => {
         currentIndex = (currentIndex + 1) % images.length;
         updateLightboxImage();
     };
+
     const showPrevImage = () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         updateLightboxImage();
     };
 
     closeButton.addEventListener("click", closeLightbox);
-    prevButton.addEventListener("click", showPrevImage);
-    nextButton.addEventListener("click", showNextImage);
+    prevButton.addEventListener("click", showNextImage);
+    nextButton.addEventListener("click", showPrevImage);
 
     // Keyboard navigation
     document.addEventListener("keydown", (e) => {

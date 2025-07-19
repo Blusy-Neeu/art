@@ -48,7 +48,6 @@ body {
     justify-content: center;
 }
 
-/* --- UPDATED CSS FOR THE CLOSE BUTTON --- */
 .close-button {
     position: absolute;
     top: 20px;
@@ -66,21 +65,27 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
-/* --- END OF UPDATED CSS --- */
-
 
 .lightbox-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    text-align: center; /* Center the loading text */
 }
 
 #lightbox-image {
-    max-width: 100%;
+    max-width: 90vw;
     max-height: 80vh;
     display: block;
     margin: 0 auto;
 }
+
+/* --- NEW CSS FOR THE LOADING INDICATOR --- */
+.loading-indicator {
+    color: white;
+    font-size: 24px;
+    padding: 20px;
+}
+/* --- END OF NEW CSS --- */
+
 
 .prev, .next {
     cursor: pointer;
