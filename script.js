@@ -40,34 +40,38 @@ document.addEventListener("DOMContentLoaded", () => {
         updateLightboxImage();
     }
 
+    // --- REVISED FUNCTION ---
     function updateLightboxImage() {
-        // Show loading indicator and hide the image
+        // 1. Immediately set the UI to the "loading" state.
+        loadingIndicator.textContent = "Loading..."; // Reset text in case of a previous error
         loadingIndicator.style.display = "block";
         lightboxImage.style.display = "none";
-        
-        // Hide navigation arrows while loading
         prevButton.style.display = "none";
         nextButton.style.display = "none";
 
-        const imageName = images[currentIndex];
-        const highResImagePath = `images/full/${imageName}`;
+        // 2. Use a short timeout to allow the browser to render the "Loading..." text.
+        setTimeout(() => {
+            const imageName = images[currentIndex];
+            const highResImagePath = `images/full/${imageName}`;
+            const img = new Image();
+            img.src = highResImagePath;
 
-        // Create a new image object to load the image in the background
-        const img = new Image();
-        img.src = highResImagePath;
+            // 3. Once the image is actually loaded, switch to the "loaded" state.
+            img.onload = () => {
+                lightboxImage.src = img.src;
+                loadingIndicator.style.display = "none";
+                lightboxImage.style.display = "block";
+                prevButton.style.display = "block";
+                nextButton.style.display = "block";
+            };
 
-        img.onload = () => {
-            // Once loaded, update the lightbox image source
-            lightboxImage.src = highResImagePath;
-            
-            // Hide loading indicator and show the image
-            loadingIndicator.style.display = "none";
-            lightboxImage.style.display = "block";
-            
-            // Show navigation arrows again
-            prevButton.style.display = "block";
-            nextButton.style.display = "block";
-        };
+            // 4. Handle cases where the image might be missing or fails to load.
+            img.onerror = () => {
+                loadingIndicator.textContent = "Image could not be loaded.";
+                prevButton.style.display = "block";
+                nextButton.style.display = "block";
+            };
+        }, 50); // A 50ms delay is enough for the browser to repaint.
     }
 
     const closeLightbox = () => lightbox.style.display = "none";

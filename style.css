@@ -68,7 +68,7 @@ body {
 
 .lightbox-content {
     position: relative;
-    text-align: center; /* Center the loading text */
+    text-align: center;
 }
 
 #lightbox-image {
@@ -78,14 +78,11 @@ body {
     margin: 0 auto;
 }
 
-/* --- NEW CSS FOR THE LOADING INDICATOR --- */
 .loading-indicator {
     color: white;
     font-size: 24px;
     padding: 20px;
 }
-/* --- END OF NEW CSS --- */
-
 
 .prev, .next {
     cursor: pointer;
