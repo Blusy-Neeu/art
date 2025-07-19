@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="image-grid"></div>
+    </div>
+
+    <!-- The Lightbox -->
+    <div id="lightbox" class="lightbox" style="display:none;">
+        <span class="close-button">×</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image">
+            <a class="prev">❮</a>
+            <a class="next">❯</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
