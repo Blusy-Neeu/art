@@ -3,7 +3,7 @@ body {
     margin: 0;
     /* Parallax Background Styles */
     background-image: url('images/bg.png');
-    background-attachment: fixed; /* This is the key to the parallax effect */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,8 +11,8 @@ body {
 
 .container {
     padding: 20px;
-    background-color: rgba(240, 240, 240, 0.8); /* Added a semi-transparent background to see the parallax effect */
-    margin: 40px; /* Added margin to better see the effect at the edges */
+    background-color: rgba(240, 240, 240, 0.8);
+    margin: 40px;
     border-radius: 10px;
 }
 
@@ -48,6 +48,27 @@ body {
     justify-content: center;
 }
 
+/* --- UPDATED CSS FOR THE CLOSE BUTTON --- */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* --- END OF UPDATED CSS --- */
+
+
 .lightbox-content {
     position: relative;
     max-width: 90%;
@@ -59,16 +80,6 @@ body {
     max-height: 80vh;
     display: block;
     margin: 0 auto;
-}
-
-.close-button {
-    position: absolute;
-    top: -30px;
-    right: 0;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 .prev, .next {
@@ -83,10 +94,12 @@ body {
     font-size: 30px;
     transition: 0.3s;
     user-select: none;
+    border-radius: 0 3px 3px 0;
 }
 
 .prev {
     left: -60px;
+    border-radius: 3px 0 0 3px;
 }
 
 .next {
@@ -95,5 +108,4 @@ body {
 
 .prev:hover, .next:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
 }
