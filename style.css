@@ -9,31 +9,45 @@ body {
     background-size: cover;
 }
 
+/* --- UPDATED TITLE STYLES --- */
 .gallery-title {
     text-align: center;
-    color: #333;
+    color: #fff; /* Changed text color to white */
     font-size: 2.5em; 
     font-family: 'Helvetica', 'Arial', sans-serif;
-    margin-bottom: 15px; /* Reduced bottom margin to bring subheading closer */
+    margin-bottom: 15px; 
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    /* Added a black outline using text-shadow */
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
 }
 
-/* --- NEW CSS FOR THE SUBHEADING --- */
+/* --- UPDATED SUBHEADING STYLES --- */
 .gallery-subheading {
     text-align: center;
-    color: #555; /* Slightly lighter than the main title */
+    color: #f1f1f1; /* Changed text color to a light grey */
     font-size: 1.1em;
-    margin-top: 0; /* Removes default top margin from <p> tag */
-    margin-bottom: 30px; /* Space between subheading and image grid */
+    margin-top: 0; 
+    margin-bottom: 30px; 
     font-style: italic;
     font-weight: 300;
+    /* Added a matching black outline */
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
 }
-/* --- END OF NEW CSS --- */
+/* --- END OF UPDATED STYLES --- */
+
 
 .container {
     padding: 20px;
-    background-color: rgba(240, 240, 240, 0.85);
+    /* Your chosen background color */
+    background-color: rgba(240, 240, 240, 0.25); 
     margin: 40px auto;
     max-width: 1200px;
     border-radius: 10px;
