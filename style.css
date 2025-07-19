@@ -9,24 +9,33 @@ body {
     background-size: cover;
 }
 
-/* --- NEW CSS FOR THE GALLERY TITLE --- */
 .gallery-title {
     text-align: center;
     color: #333;
-    font-size: 2.5em; /* Responsive font size */
-    font-family: 'Helvetica', 'Arial', sans-serif; /* A slightly different font for the title */
-    margin-bottom: 30px;
+    font-size: 2.5em; 
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin-bottom: 15px; /* Reduced bottom margin to bring subheading closer */
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* --- NEW CSS FOR THE SUBHEADING --- */
+.gallery-subheading {
+    text-align: center;
+    color: #555; /* Slightly lighter than the main title */
+    font-size: 1.1em;
+    margin-top: 0; /* Removes default top margin from <p> tag */
+    margin-bottom: 30px; /* Space between subheading and image grid */
+    font-style: italic;
+    font-weight: 300;
 }
 /* --- END OF NEW CSS --- */
 
-
 .container {
     padding: 20px;
-    background-color: rgba(240, 240, 240, 0.85); /* Slightly less transparent for readability */
-    margin: 40px auto; /* Center the container */
-    max-width: 1200px; /* Set a max-width for larger screens */
+    background-color: rgba(240, 240, 240, 0.85);
+    margin: 40px auto;
+    max-width: 1200px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
